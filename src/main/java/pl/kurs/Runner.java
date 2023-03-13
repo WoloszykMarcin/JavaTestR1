@@ -4,10 +4,13 @@ import pl.kurs.exceptions.FigureNotFoundException;
 import pl.kurs.services.*;
 import pl.kurs.util.ShapeFactory;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class Runner {
-    public static void main(String[] args) throws FigureNotFoundException {
+    public static void main(String[] args) throws FigureNotFoundException, IOException {
         ShapeFactory shapeFactory = ShapeFactory.getInstance();
         Square sq1 = shapeFactory.createSquare(10);
         Square sq2 = shapeFactory.createSquare(10);
@@ -28,6 +31,11 @@ public class Runner {
 
         Shape figureWithTheGreatestArea = ShapeService.findFigureWithTheGreatestArea(figureList);
         System.out.println("figureWithTheGreatestArea = " + figureWithTheGreatestArea);
+
+        ShapeService.exportShapesListToJson(figureList, new File("src/main/resources/figureList.json"));
+
+        List<Shape> shapes = ShapeService.importShapesFromJson(new File("src/main/resources/figureList.json"));
+        System.out.println(shapes);
 
     }
 }
