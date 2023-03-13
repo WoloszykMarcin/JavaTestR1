@@ -1,12 +1,24 @@
 package pl.kurs.services;
 
+import pl.kurs.util.ShapeFactory;
+
 public class Rectangle implements Shape {
     private double a;
     private double b;
 
-    public Rectangle(double a, double b) {
+    private Rectangle(double a, double b) {
         this.a = a;
         this.b = b;
+    }
+
+    public static Rectangle create(double a, double b) {
+        String cacheKey = "Rectangle:" + a + ":" + b;
+        Shape shape = ShapeFactory.getInstance().getShapeFromCache(cacheKey);
+        if (shape == null) {
+            shape = new Rectangle(a, b);
+            ShapeFactory.getInstance().putShapeInCache(cacheKey, shape);
+        }
+        return (Rectangle) shape;
     }
 
     public double getA() {

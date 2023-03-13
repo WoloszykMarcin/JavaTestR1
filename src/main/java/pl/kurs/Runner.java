@@ -6,11 +6,14 @@ import pl.kurs.util.ShapeFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class Runner {
     public static void main(String[] args) throws FigureNotFoundException, IOException {
+        Square square = Square.create(2);
+        Square square2 = Square.create(2);
+        System.out.println(square == square2);
+
         ShapeFactory shapeFactory = ShapeFactory.getInstance();
         Square sq1 = shapeFactory.createSquare(10);
         Square sq2 = shapeFactory.createSquare(10);

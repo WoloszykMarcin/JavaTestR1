@@ -24,11 +24,20 @@ public class ShapeFactory {
         return INSTANCE;
     }
 
+    public Shape getShapeFromCache(String cacheKey) {
+        return shapeCache.get(cacheKey);
+    }
+
+    public void putShapeInCache(String cacheKey, Shape shape) {
+        shapeCache.put(cacheKey, shape);
+    }
+
+
     public Square createSquare(double a) {
         String cacheKey = "Square: " + a;
         Shape shape = shapeCache.get(cacheKey);
         if (shape == null) {
-            shape = new Square(a);
+            shape = Square.create(a);
             shapeCache.put(cacheKey, shape);
         }
         return (Square) shape;
@@ -38,7 +47,7 @@ public class ShapeFactory {
         String cacheKey = "Rectangle:" + length + ":" + width;
         Shape shape = shapeCache.get(cacheKey);
         if (shape == null) {
-            shape = new Rectangle(length, width);
+            shape = Rectangle.create(length, width);
             shapeCache.put(cacheKey, shape);
         }
         return (Rectangle) shape;
@@ -48,7 +57,7 @@ public class ShapeFactory {
         String cacheKey = "Circle:" + radius;
         Shape shape = shapeCache.get(cacheKey);
         if (shape == null) {
-            shape = new Circle(radius);
+            shape = Circle.create(radius);
             shapeCache.put(cacheKey, shape);
         }
         return (Circle) shape;

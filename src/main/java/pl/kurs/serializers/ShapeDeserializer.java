@@ -25,14 +25,14 @@ public class ShapeDeserializer extends StdDeserializer<Shape> {
 
         if ("circle".equals(type)) {
             double radius = jn.get("radius").asDouble();
-            return new Circle(radius);
+            return Circle.create(radius);
         } else if ("rectangle".equals(type)) {
             double width = jn.get("width").asDouble();
             double height = jn.get("height").asDouble();
-            return new Rectangle(width, height);
+            return Rectangle.create(width, height);
         } else if ("square".equals(type)) {
             double side = jn.get("side").asDouble();
-            return new Square(side);
+            return Square.create(side);
         } else {
             throw new IOException("Invalid shape type: " + type);
         }
