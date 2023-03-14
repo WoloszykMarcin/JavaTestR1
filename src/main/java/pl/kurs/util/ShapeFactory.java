@@ -12,8 +12,6 @@ public class ShapeFactory {
     private static ShapeFactory INSTANCE;
     private Map<String, Shape> shapeCache;
 
-    private Shape shape;
-
     private ShapeFactory() {
         shapeCache = new HashMap<>();
     }
