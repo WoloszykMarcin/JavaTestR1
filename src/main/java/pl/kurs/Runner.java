@@ -40,5 +40,6 @@ public class Runner {
         List<Shape> shapes = ShapeService.importShapesFromJson(new File("src/main/resources/figureList.json"));
         System.out.println(shapes);
 
+
     }
 }

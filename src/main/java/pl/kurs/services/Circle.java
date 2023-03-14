@@ -2,6 +2,8 @@ package pl.kurs.services;
 
 import pl.kurs.util.ShapeFactory;
 
+import java.util.Objects;
+
 public class Circle implements Shape {
     private double r;
 
@@ -35,6 +37,19 @@ public class Circle implements Shape {
     @Override
     public double calculateArea() {
         return PI * Math.pow(r, 2);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Circle)) return false;
+        Circle circle = (Circle) o;
+        return Double.compare(circle.getR(), getR()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getR());
     }
 
     @Override
