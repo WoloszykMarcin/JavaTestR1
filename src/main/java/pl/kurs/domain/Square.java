@@ -1,24 +1,23 @@
-package pl.kurs.services;
+package pl.kurs.domain;
 
+import pl.kurs.services.Shape;
 import pl.kurs.util.ShapeFactory;
 
-public class Rectangle implements Shape {
+public class Square implements Shape {
     private double a;
-    private double b;
 
-    private Rectangle(double a, double b) {
+    private Square(double a) {
         this.a = a;
-        this.b = b;
     }
 
-    public static Rectangle create(double a, double b) {
-        String cacheKey = "Rectangle:" + a + ":" + b;
+    public static Square create(double a) {
+        String cacheKey = "Square:" + a;
         Shape shape = ShapeFactory.getInstance().getShapeFromCache(cacheKey);
         if (shape == null) {
-            shape = new Rectangle(a, b);
+            shape = new Square(a);
             ShapeFactory.getInstance().putShapeInCache(cacheKey, shape);
         }
-        return (Rectangle) shape;
+        return (Square) shape;
     }
 
     public double getA() {
@@ -26,26 +25,20 @@ public class Rectangle implements Shape {
     }
 
 
-    public double getB() {
-        return b;
-    }
-
-
     @Override
     public double calculatePerimeter() {
-        return 2 * a + 2 * b;
+        return 4 * a;
     }
 
     @Override
     public double calculateArea() {
-        return a * b;
+        return Math.pow(a, 2);
     }
 
     @Override
     public String toString() {
-        return "Rectangle{" +
+        return "Square{" +
                 "a=" + a +
-                ", b=" + b +
                 '}';
     }
 }

@@ -5,10 +5,10 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import pl.kurs.services.Circle;
-import pl.kurs.services.Rectangle;
+import pl.kurs.domain.Circle;
+import pl.kurs.domain.Rectangle;
 import pl.kurs.services.Shape;
-import pl.kurs.services.Square;
+import pl.kurs.domain.Square;
 
 import java.io.IOException;
 

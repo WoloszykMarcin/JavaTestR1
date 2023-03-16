@@ -1,5 +1,6 @@
-package pl.kurs.services;
+package pl.kurs.domain;
 
+import pl.kurs.services.Shape;
 import pl.kurs.util.ShapeFactory;
 
 public class Circle implements Shape {

@@ -1,5 +1,8 @@
 package pl.kurs;
 
+import pl.kurs.domain.Circle;
+import pl.kurs.domain.Rectangle;
+import pl.kurs.domain.Square;
 import pl.kurs.exceptions.FigureNotFoundException;
 import pl.kurs.services.*;
 import pl.kurs.util.ShapeFactory;

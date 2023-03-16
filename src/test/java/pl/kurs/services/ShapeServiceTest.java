@@ -3,6 +3,9 @@ package pl.kurs.services;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Before;
 import org.junit.Test;
+import pl.kurs.domain.Circle;
+import pl.kurs.domain.Rectangle;
+import pl.kurs.domain.Square;
 import pl.kurs.exceptions.FigureNotFoundException;
 
 import java.io.File;
