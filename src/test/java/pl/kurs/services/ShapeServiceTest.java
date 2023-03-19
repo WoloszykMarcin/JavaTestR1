@@ -7,15 +7,18 @@ import pl.kurs.domain.Circle;
 import pl.kurs.domain.Rectangle;
 import pl.kurs.domain.Square;
 import pl.kurs.exceptions.FigureNotFoundException;
+import pl.kurs.util.ShapeFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ShapeServiceTest {
 
@@ -76,6 +79,36 @@ public class ShapeServiceTest {
     }
 
     @Test
+    public void testExportShapesListToJson() throws IOException {
+        // given
+        Shape square = Square.create(5.0);
+        Shape rectangle = Rectangle.create(4.0, 5.0);
+        Shape circle = Circle.create(6.0);
+
+        List<Shape> figures = new ArrayList<>();
+        figures.add(square);
+        figures.add(rectangle);
+        figures.add(circle);
+
+        File file = new File("figures.json");
+
+        // when
+        ShapeService.exportShapesListToJson(figures, file);
+
+        // then
+        assertTrue(file.exists());
+        assertTrue(file.length() > 0);
+
+        // Assert that the contents of the file match the expected JSON
+        String expectedJson = "[{\"type\":\"square\",\"side\":5.0},{\"type\":\"rectangle\",\"width\":4.0,\"height\":5.0},{\"type\":\"circle\",\"radius\":6.0}]";
+        String actualJson = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+        assertEquals(expectedJson, actualJson);
+
+        // cleanup
+        Files.deleteIfExists(Paths.get("figures.json"));
+    }
+
+    @Test
     public void testExportImportShapesToJson() throws IOException {
         // given
         Shape square = Square.create(5.0);
@@ -104,6 +137,48 @@ public class ShapeServiceTest {
         // cleanup
         Files.deleteIfExists(Paths.get("figures.json"));
 
+    }
+
+    @Test
+    public void checkForCalculateAreaMethod() {
+        //given
+        ShapeFactory shapeFactory = ShapeFactory.getInstance();
+        Square square = shapeFactory.createSquare(5);
+        Circle circle = shapeFactory.createCircle(6);
+        Rectangle rectangle = shapeFactory.createRectangle(5, 6);
+
+        //when
+        double squareArea = square.calculateArea();
+        double circleArea = circle.calculateArea();
+        double rectangleArea = rectangle.calculateArea();
+
+        //then
+        SoftAssertions sa = new SoftAssertions();
+        sa.assertThat(squareArea).isEqualTo(25);
+        sa.assertThat(circleArea).isEqualTo(Math.PI * Math.pow(6, 2));
+        sa.assertThat(rectangleArea).isEqualTo(30);
+        sa.assertAll();
+    }
+
+    @Test
+    public void checkForCalculatePerimeterMethod() {
+        //given
+        ShapeFactory shapeFactory = ShapeFactory.getInstance();
+        Square square = shapeFactory.createSquare(5);
+        Circle circle = shapeFactory.createCircle(6);
+        Rectangle rectangle = shapeFactory.createRectangle(5, 6);
+
+        //when
+        double squarePerimeter = square.calculatePerimeter();
+        double circlePerimeter = circle.calculatePerimeter();
+        double rectanglePerimeter = rectangle.calculatePerimeter();
+
+        //then
+        SoftAssertions sa = new SoftAssertions();
+        sa.assertThat(squarePerimeter).isEqualTo(20);
+        sa.assertThat(circlePerimeter).isEqualTo(2 * Math.PI * 6);
+        sa.assertThat(rectanglePerimeter).isEqualTo(22);
+        sa.assertAll();
     }
 
 
