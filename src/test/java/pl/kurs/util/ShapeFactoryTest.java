@@ -96,4 +96,31 @@ public class ShapeFactoryTest {
         assertEquals("The shape retrieved from the cache should be the same as the one that was put in", square, actualFigure);
     }
 
+    @Test
+    public void shouldCreateCircleWhenNotInCache() {
+        //given
+        double r = 5.0;
+        double r2 = 10.0;
+
+        //when
+        Circle circle = shapeFactory.createCircle(r);
+        Circle circle2 = shapeFactory.createCircle(r2);
+        Circle circle3 = shapeFactory.createCircle(r2);
+
+        //then
+        assertNotNull(circle);
+        assertEquals(r, circle.getR(), 0.0);
+        assertTrue(shapeFactory.getShapeFromCache("Circle:5.0") == circle);
+
+        assertNotNull(circle2);
+        assertEquals(r2, circle2.getR(), 0.0);
+        assertTrue(shapeFactory.getShapeFromCache("Circle:10.0") == circle2);
+
+
+        assertTrue(shapeFactory.getShapeFromCache("Circle:5.0") == circle);
+
+
+        assertSame(circle2, circle3);
+    }
+
 }

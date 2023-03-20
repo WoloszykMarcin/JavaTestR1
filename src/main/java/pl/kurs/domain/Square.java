@@ -11,6 +11,9 @@ public class Square implements Shape {
     }
 
     public static Square create(double a) {
+        if (a <= 0)
+            throw new IllegalArgumentException("Side length of square must be positive");
+
         String cacheKey = "Square:" + a;
         Shape shape = ShapeFactory.getInstance().getShapeFromCache(cacheKey);
         if (shape == null) {

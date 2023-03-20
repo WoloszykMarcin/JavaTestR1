@@ -11,6 +11,9 @@ public class Circle implements Shape {
     }
 
     public static Circle create(double r) {
+        if (r <= 0)
+            throw new IllegalArgumentException("Radius of circle must be positive");
+
         String cacheKey = "Circle:" + r;
         Shape shape = ShapeFactory.getInstance().getShapeFromCache(cacheKey);
         if (shape == null) {
