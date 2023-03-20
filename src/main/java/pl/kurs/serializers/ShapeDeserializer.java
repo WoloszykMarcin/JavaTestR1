@@ -27,7 +27,7 @@ public class ShapeDeserializer extends StdDeserializer<Shape> {
             double radius = jn.get("radius").asDouble();
             return Circle.create(radius);
         } else if ("rectangle".equals(type)) {
-            double width = jn.get("width").asDouble();
+            double width = jn.get("length").asDouble();
             double height = jn.get("height").asDouble();
             return Rectangle.create(width, height);
         } else if ("square".equals(type)) {

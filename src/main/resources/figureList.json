@@ -9,17 +9,17 @@
   },
   {
     "type": "rectangle",
-    "width": 10.0,
+    "length": 10.0,
     "height": 5.0
   },
   {
     "type": "rectangle",
-    "width": 10.0,
+    "length": 10.0,
     "height": 5.0
   },
   {
     "type": "rectangle",
-    "width": 14.0,
+    "length": 14.0,
     "height": 5.0
   },
   {

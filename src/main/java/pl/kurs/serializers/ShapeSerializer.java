@@ -26,7 +26,7 @@ public class ShapeSerializer extends StdSerializer<Shape> {
             jsonGenerator.writeNumberField("radius", circle.getR());
         } else if (shape instanceof Rectangle) {
             Rectangle rectangle = (Rectangle) shape;
-            jsonGenerator.writeNumberField("width", rectangle.getA());
+            jsonGenerator.writeNumberField("length", rectangle.getA());
             jsonGenerator.writeNumberField("height", rectangle.getB());
         } else if (shape instanceof Square) {
             Square square = (Square) shape;

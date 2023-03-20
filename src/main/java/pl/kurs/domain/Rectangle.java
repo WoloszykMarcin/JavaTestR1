@@ -14,7 +14,7 @@ public class Rectangle implements Shape {
 
     public static Rectangle create(double a, double b) {
         if (a <= 0 || b <= 0)
-            throw new IllegalArgumentException("height and width of rectangle must be positive");
+            throw new IllegalArgumentException("length and width of rectangle must be positive");
 
         String cacheKey = "Rectangle:" + a + ":" + b;
         Shape shape = ShapeFactory.getInstance().getShapeFromCache(cacheKey);
