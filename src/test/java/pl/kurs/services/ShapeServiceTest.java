@@ -100,7 +100,7 @@ public class ShapeServiceTest {
         assertTrue(file.length() > 0);
 
         // Assert that the contents of the file match the expected JSON
-        String expectedJson = "[{\"type\":\"square\",\"side\":5.0},{\"type\":\"rectangle\",\"length\":4.0,\"height\":5.0},{\"type\":\"circle\",\"radius\":6.0}]";
+        String expectedJson = "[{\"type\":\"square\",\"side\":5.0},{\"type\":\"rectangle\",\"length\":4.0,\"width\":5.0},{\"type\":\"circle\",\"radius\":6.0}]";
         String actualJson = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
         assertEquals(expectedJson, actualJson);
 

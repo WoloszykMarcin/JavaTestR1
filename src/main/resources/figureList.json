@@ -10,17 +10,17 @@
   {
     "type": "rectangle",
     "length": 10.0,
-    "height": 5.0
+    "width": 5.0
   },
   {
     "type": "rectangle",
     "length": 10.0,
-    "height": 5.0
+    "width": 5.0
   },
   {
     "type": "rectangle",
     "length": 14.0,
-    "height": 5.0
+    "width": 5.0
   },
   {
     "type": "circle",
