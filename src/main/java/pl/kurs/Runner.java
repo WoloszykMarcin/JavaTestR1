@@ -9,6 +9,7 @@ import pl.kurs.util.ShapeFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class Runner {
@@ -29,7 +30,7 @@ public class Runner {
         Circle circle = shapeFactory.createCircle(10);
         Circle circle2 = shapeFactory.createCircle(14);
 
-        List<Shape> figureList = List.of(sq1, sq2, rec1, rec2, rec3, circle, circle2);
+        List<Shape> figureList = Arrays.asList(sq1, sq2, rec1, rec2, rec3, circle, circle2);
 
 
         Shape figureWithTheGreatestPerimeter = ShapeService.findFigureWithTheGreatestPerimeter(figureList, Square.class);

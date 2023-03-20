@@ -109,11 +109,11 @@ public class ShapeFactoryTest {
 
         //then
         assertNotNull(circle);
-        assertEquals(r, circle.getR(), 0.0);
+        assertEquals(r, circle.getRadius(), 0.0);
         assertTrue(shapeFactory.getShapeFromCache("Circle:5.0") == circle);
 
         assertNotNull(circle2);
-        assertEquals(r2, circle2.getR(), 0.0);
+        assertEquals(r2, circle2.getRadius(), 0.0);
         assertTrue(shapeFactory.getShapeFromCache("Circle:10.0") == circle2);
 
 

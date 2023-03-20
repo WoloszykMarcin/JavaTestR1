@@ -1,33 +1,57 @@
 [
-  {
-    "type": "square",
-    "side": 10.0
-  },
-  {
-    "type": "square",
-    "side": 10.0
-  },
-  {
-    "type": "rectangle",
-    "length": 10.0,
-    "width": 5.0
-  },
-  {
-    "type": "rectangle",
-    "length": 10.0,
-    "width": 5.0
-  },
-  {
-    "type": "rectangle",
-    "length": 14.0,
-    "width": 5.0
-  },
-  {
-    "type": "circle",
-    "radius": 10.0
-  },
-  {
-    "type": "circle",
-    "radius": 14.0
-  }
+  "java.util.Arrays$ArrayList",
+  [
+    [
+      "pl.kurs.domain.Square",
+      {
+        "type": "square",
+        "side": 10.0
+      }
+    ],
+    [
+      "pl.kurs.domain.Square",
+      {
+        "type": "square",
+        "side": 10.0
+      }
+    ],
+    [
+      "pl.kurs.domain.Rectangle",
+      {
+        "type": "rectangle",
+        "length": 10.0,
+        "width": 5.0
+      }
+    ],
+    [
+      "pl.kurs.domain.Rectangle",
+      {
+        "type": "rectangle",
+        "length": 10.0,
+        "width": 5.0
+      }
+    ],
+    [
+      "pl.kurs.domain.Rectangle",
+      {
+        "type": "rectangle",
+        "length": 14.0,
+        "width": 5.0
+      }
+    ],
+    [
+      "pl.kurs.domain.Circle",
+      {
+        "type": "circle",
+        "radius": 10.0
+      }
+    ],
+    [
+      "pl.kurs.domain.Circle",
+      {
+        "type": "circle",
+        "radius": 14.0
+      }
+    ]
+  ]
 ]

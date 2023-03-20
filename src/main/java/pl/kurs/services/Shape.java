@@ -1,10 +1,21 @@
 package pl.kurs.services;
 
-public interface Shape {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    double PI = Math.PI;
+public abstract class Shape {
 
-    double calculatePerimeter();
-    double calculateArea();
+    @JsonProperty("type")
+    private String type;
 
+    public abstract double calculatePerimeter();
+
+    public abstract double calculateArea();
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

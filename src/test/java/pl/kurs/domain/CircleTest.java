@@ -13,7 +13,7 @@ public class CircleTest {
         Circle circle = Circle.create(radius);
         //then
         assertNotNull(circle);
-        assertEquals(radius, circle.getR(), 0.0);
+        assertEquals(radius, circle.getRadius(), 0.0);
     }
 
     @Test(expected = IllegalArgumentException.class)

@@ -14,8 +14,8 @@ public class RectangleTest {
         Rectangle rectangle = Rectangle.create(width, height);
         //then
         assertNotNull(rectangle);
-        assertEquals(width, rectangle.getA(), 0.0);
-        assertEquals(height, rectangle.getB(), 0.0);
+        assertEquals(width, rectangle.getLength(), 0.0);
+        assertEquals(height, rectangle.getWidth(), 0.0);
     }
 
     @Test(expected = IllegalArgumentException.class)

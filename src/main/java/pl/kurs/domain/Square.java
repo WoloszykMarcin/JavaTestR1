@@ -1,13 +1,21 @@
 package pl.kurs.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.kurs.services.Shape;
 import pl.kurs.util.ShapeFactory;
 
-public class Square implements Shape {
-    private double a;
+import java.util.Objects;
 
-    private Square(double a) {
-        this.a = a;
+public class Square extends Shape {
+    @JsonProperty("side")
+
+    private double side;
+
+    public Square() {
+    }
+
+    private Square(double side) {
+        this.side = side;
     }
 
     public static Square create(double a) {
@@ -23,25 +31,46 @@ public class Square implements Shape {
         return (Square) shape;
     }
 
-    public double getA() {
-        return a;
+    public double getSide() {
+        return side;
     }
 
+    public void setSide(double side) {
+        this.side = side;
+    }
 
     @Override
     public double calculatePerimeter() {
-        return 4 * a;
+        return 4 * side;
     }
 
     @Override
     public double calculateArea() {
-        return Math.pow(a, 2);
+        return Math.pow(side, 2);
+    }
+
+    @Override
+    public String getType() {
+        return "square";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Square)) return false;
+        Square square = (Square) o;
+        return Double.compare(square.getSide(), getSide()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSide());
     }
 
     @Override
     public String toString() {
         return "Square{" +
-                "a=" + a +
+                "a=" + side +
                 '}';
     }
 }

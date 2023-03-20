@@ -1,15 +1,23 @@
 package pl.kurs.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.kurs.services.Shape;
 import pl.kurs.util.ShapeFactory;
 
-public class Rectangle implements Shape {
-    private double a;
-    private double b;
+import java.util.Objects;
 
-    private Rectangle(double a, double b) {
-        this.a = a;
-        this.b = b;
+public class Rectangle extends Shape {
+    @JsonProperty("length")
+    private double length;
+    @JsonProperty("width")
+    private double width;
+
+    public Rectangle() {
+    }
+
+    private Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
     }
 
     public static Rectangle create(double a, double b) {
@@ -25,31 +33,57 @@ public class Rectangle implements Shape {
         return (Rectangle) shape;
     }
 
-    public double getA() {
-        return a;
+    public double getLength() {
+        return length;
     }
 
 
-    public double getB() {
-        return b;
+    public double getWidth() {
+        return width;
     }
 
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
 
     @Override
     public double calculatePerimeter() {
-        return 2 * a + 2 * b;
+        return 2 * length + 2 * width;
     }
 
     @Override
     public double calculateArea() {
-        return a * b;
+        return length * width;
+    }
+
+    @JsonProperty("type")
+    @Override
+    public String getType() {
+        return "rectangle";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rectangle)) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Double.compare(rectangle.getLength(), getLength()) == 0 && Double.compare(rectangle.getWidth(), getWidth()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getLength(), getWidth());
     }
 
     @Override
     public String toString() {
         return "Rectangle{" +
-                "a=" + a +
-                ", b=" + b +
+                "a=" + length +
+                ", b=" + width +
                 '}';
     }
 }

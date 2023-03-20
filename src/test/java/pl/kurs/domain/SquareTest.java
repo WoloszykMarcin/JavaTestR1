@@ -13,7 +13,7 @@ public class SquareTest {
         Square square = Square.create(side);
         //then
         assertNotNull(square);
-        assertEquals(side, square.getA(), 0.0);
+        assertEquals(side, square.getSide(), 0.0);
     }
 
     @Test(expected = IllegalArgumentException.class)
